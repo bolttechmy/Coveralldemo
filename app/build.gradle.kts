@@ -70,3 +70,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 apply("$rootDir/jacoco.gradle.kts")
+coverallsJacoco {
+    reportPath = "build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+}
