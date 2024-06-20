@@ -21,6 +21,13 @@ jobs:
         run: |
           ./gradlew clean test jacocoTestReport
 
+          # Check if coverage report exists and print its content
+          if [ -f "build/reports/jacoco/test/jacocoTestReport.xml" ]; then
+            cat build/reports/jacoco/test/jacocoTestReport.xml
+          else
+            echo "Coverage report not found."
+          fi
+
       - name: Upload coverage to Coveralls
         run: |
           ./gradlew coverallsJacoco
