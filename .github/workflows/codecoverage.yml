@@ -28,5 +28,7 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       #- name: Upload report
         run:
-         ./gradlew test jacocoTestReport 
+         ./gradlew test jacocoTestReport
+      - name: upload test
+        run:
          ./gradlew coverallsJacoco
