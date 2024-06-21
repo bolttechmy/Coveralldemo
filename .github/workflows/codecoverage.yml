@@ -18,7 +18,5 @@ jobs:
         run: ./gradlew createDebugCoverageReport
 
       - name: Report Coveralls
-        uses: coverallsapp/github-action@v2
-        with:
-         github-token: ${{ github.token }}
+        run: ./gradlew coverallsJacoco
 
