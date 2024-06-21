@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     jacoco
+    alias(libs.plugins.coveralls.jacoco)
 }
 
 android {
@@ -20,7 +21,6 @@ android {
             useSupportLibrary = true
         }
     }
-
     testOptions {
         unitTests.all {
 
@@ -82,3 +82,6 @@ dependencies {
     testImplementation (libs.androidx.core.testing)
 }
 apply("$rootDir/jacoco.gradle.kts")
+coverallsJacoco {
+    reportPath = "${buildDir}/reports/coverage/test/debug/index.html"
+}
