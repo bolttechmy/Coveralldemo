@@ -21,8 +21,18 @@ android {
             useSupportLibrary = true
         }
     }
+    testOptions {
+        unitTests.all {
 
+        }
+        unitTests.isReturnDefaultValues = true
+    }
     buildTypes {
+
+        debug {
+            enableUnitTestCoverage = true
+            isMinifyEnabled = false
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -68,8 +78,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation (libs.androidx.core.testing)
 }
 apply("$rootDir/jacoco.gradle.kts")
 coverallsJacoco {
-    reportPath = "${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+    reportPath = "${buildDir}/reports/coverage/test/debug/report.xml"
 }
