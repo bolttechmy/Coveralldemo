@@ -14,9 +14,14 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
       - name: Execute unit tests
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: ./gradlew createDebugCoverageReport
-
       - name: Report Coveralls
         run: ./gradlew coverallsJacoco
 

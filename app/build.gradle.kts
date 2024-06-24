@@ -83,5 +83,5 @@ dependencies {
 }
 apply("$rootDir/jacoco.gradle.kts")
 coverallsJacoco {
-    reportPath = "${buildDir}/reports/coverage/test/debug/index.html"
+    reportPath = "${buildDir}/reports/coverage/test/debug/report.xml"
 }
